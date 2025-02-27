@@ -40,11 +40,15 @@ int main(int argc, char* argv[]){
 
 	//child process
 	else if (pid == 0){
-		execl("odds.c", NULL);
+		execl("./odds.out", "odds", argv[1],  NULL);
+		perror("execl");
+		return 1;
 	}
 
 	else {
-		execl("evens.c", NULL);
+		execl("./evens.out", "evens", argv[1], NULL);
+		perror("execl");
+		return 1;
 	}
 	
 }
