@@ -16,6 +16,7 @@ void limit_fork(rlim_t max_procs){
 		exit(-1);
 	}
 }
+
 int main(int argc, char* argv[]){
 	limit_fork(50);
 	if (argc < 2) {
@@ -23,7 +24,8 @@ int main(int argc, char* argv[]){
 		exit(1);
 	}
 
-	int N = (int)argv[1];
+	int N;
+	sscanf(argv[1], "%d", &N);
 	
 	//fork
 	pid_t pid = fork();
